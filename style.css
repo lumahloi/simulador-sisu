@@ -76,3 +76,9 @@ button {
 button:active {
     background-color: #53262d;
 }
+
+#aviso {
+    color: white;
+    font-size: 1em;
+    text-align: center;
+}
