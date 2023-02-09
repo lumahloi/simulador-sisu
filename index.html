@@ -5,61 +5,59 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Simulador SISU</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <p>Nome do curso:</p><input type="text" name="curso" id="curso"><br>
 
-    <p>Redação:</p> <input type="number" name="redac" id="redac" max="1000"> Peso: <input type="number" name="p_redac" id="p_redac" value="1"><br>
+    <header>
+        <h1>Simulador Sisu</h1>
+    </header>
 
-    <p>Linguagens:</p> <input type="number" name="ling" id="ling" max="1000"> Peso: <input type="number" name="p_ling" id="p_ling" value="1"><br>
+    <main>
+        <p id="pcurso">Nome do curso:</p> <input type="text" name="curso" id="curso" placeholder="ex.: Medicina">
 
-    <p>Humanas:</p> <input type="number" name="hum" id="hum" max="1000"> Peso: <input type="number" name="p_hum" id="p_hum" value="1"><br>
+        <table>
+            <tr>
+                <td><p>Redação:</p></td>
+                <td><input class="notas" type="number" name="redac" id="redac" min="100" max="1000" value="100" lang="pt-br"></td>
+                <td><p>Peso:</p></td>
+                <td><input type="number" name="p_redac" id="p_redac" value="1" min="1" max="5"></td>
+            </tr>
 
-    <p>Naturezas:</p> <input type="number" name="nat" id="nat" max="1000"> Peso: <input type="number" name="p_nat" id="p_nat" value="1"><br>
+            <tr>
+                <td><p>Linguagens:</p></td>
+                <td><input class="notas" type="number" name="ling" id="ling" min="100" max="1000" value="100" lang="pt-br"></td>
+                <td><p>Peso:</p></td>
+                <td><input type="number" name="p_ling" id="p_ling" value="1" min="1" max="5"></td>
+            </tr>
 
-    <p>Matemática:</p> <input type="number" name="mat" id="mat" max="1000"> Peso: <input type="number" name="p_mat" id="p_mat" value="1"><br>
-<hr>
-    <button onclick="calcular()">Calcular nota</button>
+            <tr>
+                <td><p>Humanas:</p></td>
+                <td><input class="notas" type="number" name="hum" id="hum" min="100" max="1000" value="100" lang="pt-br"></td>
+                <td><p>Peso:</p></td>
+                <td><input type="number" name="p_hum" id="p_hum" value="1" min="1" max="5"></td>
+            </tr>
 
-    <p id="res">Sua média no curso aparecerá aqui.</p>
+            <tr>
+                <td><p>Naturezas:</p></td>
+                <td><input class="notas" type="number" name="nat" id="nat" min="100" max="1000" value="100" lang="pt-br"></td>
+                <td><p>Peso:</p></td>
+                <td><input type="number" name="p_nat" id="p_nat" value="1" min="1" max="5"></td>
+            </tr>
 
-    <script>
-        function calcular(){
-            let res = document.getElementById('res')
-            let curso = document.getElementById('curso').value
-            
-            let redac = document.getElementById('redac').value
-            redac = parseFloat(redac)
-            let p_redac = document.getElementById('p_redac').value
-            p_redac = parseInt(p_redac)
+            <tr>
+                <td><p>Matemática:</p></td>
+                <td><input class="notas" type="number" name="mat" id="mat" min="100" max="1000" value="100" lang="pt-br"></td>
+                <td><p>Peso:</p></td>
+                <td><input type="number" name="p_mat" id="p_mat" value="1" min="1" max="5"></td>
+            </tr>
+        </table>
 
-            let ling = document.getElementById('ling').value
-            ling = parseFloat(ling)
-            let p_ling = document.getElementById('p_ling').value
-            p_ling = parseInt(p_ling)
+        <button onclick="calcular()"><p>Calcular</p></button>
 
-            let hum = document.getElementById('hum').value
-            hum = parseFloat(hum)
-            let p_hum = document.getElementById('p_hum').value
-            p_hum = parseInt(p_hum)
+        <p id="res">Sua média no curso aparecerá aqui.</p>
+    </main>
 
-            let nat = document.getElementById('nat').value
-            nat = parseFloat(nat)
-            let p_nat = document.getElementById('p_nat').value
-            p_nat = parseInt(p_nat)
-
-            let mat = document.getElementById('mat').value
-            mat = parseFloat(mat)
-            let p_mat = document.getElementById('p_mat').value
-            p_mat = parseInt(p_mat)
-            
-            let media = redac * p_redac + ling * p_ling + hum * p_hum + nat * p_nat + mat * p_mat
-
-            let media2 = media / (p_redac + p_ling + p_hum + p_nat + p_mat)
-        
-            res.innerHTML += `<br> Sua média no curso <b>${curso}</b> é <b>${media2}</b>` 
-        }
-    </script>
-    
+        <script src="script.js"></script>
 </body>
 </html>
